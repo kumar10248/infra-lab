@@ -5,19 +5,20 @@ A mini production-like infrastructure setup built using Docker, Docker Compose, 
 ## Architecture
 
 ```text
-Client (Kali)
-      │
-      ▼
-   Nginx Proxy
-      │
-      ├── /api   → Node.js API (3 Replicas)
-      └── /admin → Admin Service
-                      │
-                      ▼
-                PostgreSQL
-                      │
-                      ▼
-              Docker Volume (Persistent Storage)
+Client
+   |
+   v
+Nginx
+   |
+   +--> API-1
+   +--> API-2
+   +--> API-3
+            |
+            v
+       PostgreSQL
+            |
+            v
+      Docker Volume
 ```
 
 ## Features
@@ -50,14 +51,10 @@ Client (Kali)
 ```text
 infra-lab/
 ├── api-server/
-│   ├── Dockerfile
-│   ├── package.json
-│   └── server.js
 ├── admin-server/
-│   ├── Dockerfile
-│   └── server.js
 ├── nginx/
 │   └── nginx.conf
+├── .env
 ├── docker-compose.yml
 └── README.md
 ```
