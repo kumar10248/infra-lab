@@ -1,63 +1,86 @@
 const http = require("http");
 const os = require("os");
-const { Client } = require("pg");
+const { Pool } = require("pg");
 
-const client = new Client({
+const pool = new Pool({
   host: "postgres",
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
+  connectionTimeoutMillis: 3000,
 });
 
-client.connect()
-  .then(() => console.log("DB Connected"))
-  .catch(console.error);
+pool.on("error", (err) => {
+  console.error("Unexpected DB error:", err.message);
+});
+
+console.log("API Server Starting...");
 
 const server = http.createServer(async (req, res) => {
-console.log(req.url);
+  console.log(req.url);
+
+  // GET /users
   if (req.url === "/users") {
     try {
-      const result = await client.query(
+      const result = await pool.query(
         "SELECT * FROM users"
       );
 
       res.setHeader("Content-Type", "application/json");
-       res.end(
-    JSON.stringify({
-      container: os.hostname(),
-      users: result.rows
-    })
-  );
+
+      res.end(
+        JSON.stringify({
+          container: os.hostname(),
+          users: result.rows,
+        })
+      );
     } catch (err) {
       console.error(err);
+
       res.statusCode = 500;
-      res.end("Database Error");
+      res.end(
+        JSON.stringify({
+          error: "Database Error",
+        })
+      );
     }
 
     return;
   }
 
-   if (req.url === "/health") {
-  try {
-    await client.query("SELECT 1");
+  // GET /health
+  if (req.url === "/health") {
+    try {
+      await pool.query("SELECT 1");
 
-    res.setHeader("Content-Type", "application/json");
+      res.setHeader("Content-Type", "application/json");
 
-    res.end(JSON.stringify({
-      status: "UP",
-      database: "CONNECTED"
-    }));
-  } catch (err) {
-    res.statusCode = 500;
-    res.end(JSON.stringify({
-      status: "DOWN",
-      database: "DISCONNECTED"
-    }));
+      res.end(
+        JSON.stringify({
+          status: "UP",
+          database: "CONNECTED",
+          container: os.hostname(),
+        })
+      );
+    } catch (err) {
+      console.error(err.message);
+
+      res.statusCode = 500;
+
+      res.end(
+        JSON.stringify({
+          status: "DOWN",
+          database: "DISCONNECTED",
+          container: os.hostname(),
+        })
+      );
+    }
+
+    return;
   }
 
-  return;
-}
-  res.end("API SERVER 🚀");
+  // Default Route
+  res.end(`Hello from ${os.hostname()}`);
 });
 
 server.listen(3000, "0.0.0.0", () => {
