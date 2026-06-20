@@ -18,7 +18,7 @@ A production-like containerized platform built to learn backend infrastructure, 
 
 ## 🏗️ Architecture
 
-/home/kumar/Downloads/arch.png 
+![alt text](arch.png)
 ---
 
 ## Endpoints
@@ -81,18 +81,17 @@ See screenshots and demo GIF below.
 
 ### Grafana Dashboard
 
-/home/kumar/Pictures/Screenshot_20260620_125015.png 
-
+![alt text](Screenshot_20260620_125015.png)
 ### Prometheus Targets
 
-/home/kumar/Pictures/Screenshot_20260620_113743.png 
+![alt text](Screenshot_20260620_113743.png)
 
 ### Load Balancing Demo
 
-/home/kumar/Pictures/Screenshot_20260618_050608.png
+![alt text](Screenshot_20260618_050608.png)
 
 ### Redis Cache Demo
-/home/kumar/Pictures/Screenshot_20260620_233143.png 
+![alt text](Screenshot_20260620_233143.png) 
 
 * Database → Redis → Cache Hit workflow
 
