@@ -20,6 +20,27 @@ services:
     depends_on:
       - api
 
+  redis:
+    image: redis:7-alpine
+    container_name: redis-cache
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - api
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3001:3000"
+    depends_on:
+      - prometheus
+
+
   postgres:
     image: postgres:17-alpine
     container_name: postgres-db
