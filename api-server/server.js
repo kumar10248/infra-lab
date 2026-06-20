@@ -4,9 +4,9 @@ const { Client } = require("pg");
 
 const client = new Client({
   host: "postgres",
-  user: "devashish",
-  password: "secret123",
-  database: "infra_lab",
+  user: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DB,
 });
 
 client.connect()
@@ -37,6 +37,26 @@ console.log(req.url);
     return;
   }
 
+   if (req.url === "/health") {
+  try {
+    await client.query("SELECT 1");
+
+    res.setHeader("Content-Type", "application/json");
+
+    res.end(JSON.stringify({
+      status: "UP",
+      database: "CONNECTED"
+    }));
+  } catch (err) {
+    res.statusCode = 500;
+    res.end(JSON.stringify({
+      status: "DOWN",
+      database: "DISCONNECTED"
+    }));
+  }
+
+  return;
+}
   res.end("API SERVER 🚀");
 });
 
