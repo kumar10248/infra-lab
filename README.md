@@ -100,7 +100,4 @@ Built for learning real-world backend infrastructure and DevOps concepts.
 
 ## Demo Video Clip
 
-<video width="100%" controls>
-  <source src="arch.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+🎥 Demo Video: [Watch Here](./arch.mp4)
