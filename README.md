@@ -18,7 +18,7 @@ A production-like containerized platform built to learn backend infrastructure, 
 
 ## 🏗️ Architecture
 
-![alt text](arch.png)
+![alt text](architecture.png)
 ---
 
 ## Endpoints
@@ -100,4 +100,7 @@ Built for learning real-world backend infrastructure and DevOps concepts.
 
 ## Demo Video Clip
 
-<video controls src="arch.mp4" title="Title"></video>
+<video width="100%" controls>
+  <source src="arch.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
