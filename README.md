@@ -100,4 +100,4 @@ Built for learning real-world backend infrastructure and DevOps concepts.
 
 ## Demo Video Clip
 
-🎥 Demo Video: [Watch Here](./arch.mp4)
+<video controls src="arch.mp4" title="Title"></video>
