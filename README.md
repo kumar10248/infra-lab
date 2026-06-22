@@ -3,6 +3,14 @@
 
 A production-like containerized platform built to learn backend infrastructure, scalability, caching, and observability.
 
+![Node.js](https://img.shields.io/badge/Node.js-20-green)
+![Docker](https://img.shields.io/badge/Docker-Compose-blue)
+![Nginx](https://img.shields.io/badge/Nginx-Reverse%20Proxy-green)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue)
+![Redis](https://img.shields.io/badge/Redis-Cache-red)
+![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-orange)
+![Grafana](https://img.shields.io/badge/Grafana-Dashboard-orange)
+
 ## ✨ Features
 
 * 🐳 Docker Compose based multi-container architecture
@@ -24,17 +32,13 @@ A production-like containerized platform built to learn backend infrastructure, 
 
 ## Endpoints
 
-### Health Check
+## 🌐 API Endpoints
 
+```http
 GET /api/health
-
-### Users
-
 GET /api/users
-
-### Metrics
-
 GET /api/metrics
+```
 
 ---
 
@@ -71,8 +75,14 @@ GET /api/metrics
 * Database Persistence
 * Observability & Monitoring
 * Production Debugging
+* CI Automation using GitHub Actions
 
 ---
+## 🚀 Getting Started
+
+git clone https://github.com/kumar10248/infra-lab.git
+cd infra-lab
+docker compose up -d
 
 ## Demo
 
