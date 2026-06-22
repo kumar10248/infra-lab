@@ -2,20 +2,22 @@ name: Infra Lab CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Build API
-        run: docker build ./api-server
-
-      - name: Build Admin
-        run: docker build ./admin-server
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Validate Compose
         run: docker compose config
+
+      - name: Build API Image
+        run: docker build -t infra-lab-api ./api-server
+
+      - name: Build Admin Image
+        run: docker build -t infra-lab-admin ./admin-server
