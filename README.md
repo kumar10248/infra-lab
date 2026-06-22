@@ -1,8 +1,6 @@
 ![CI](https://github.com/kumar10248/infra-lab/actions/workflows/ci.yml/badge.svg)
 # 🚀 Infra Lab
 
-A production-like containerized platform built to learn backend infrastructure, scalability, caching, and observability.
-
 ![Node.js](https://img.shields.io/badge/Node.js-20-green)
 ![Docker](https://img.shields.io/badge/Docker-Compose-blue)
 ![Nginx](https://img.shields.io/badge/Nginx-Reverse%20Proxy-green)
@@ -10,6 +8,8 @@ A production-like containerized platform built to learn backend infrastructure, 
 ![Redis](https://img.shields.io/badge/Redis-Cache-red)
 ![Prometheus](https://img.shields.io/badge/Prometheus-Monitoring-orange)
 ![Grafana](https://img.shields.io/badge/Grafana-Dashboard-orange)
+
+A production-like containerized platform built to learn backend infrastructure, scalability, caching, and observability.
 
 ## ✨ Features
 
