@@ -21,3 +21,6 @@ jobs:
 
       - name: Build Admin Image
         run: docker build -t infra-lab-admin ./admin-server
+
+      - name: List Files
+        run: ls -R
