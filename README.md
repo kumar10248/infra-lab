@@ -1,3 +1,4 @@
+![CI](https://github.com/kumar10248/infra-lab/actions/workflows/ci.yml/badge.svg)
 # 🚀 Infra Lab
 
 A production-like containerized platform built to learn backend infrastructure, scalability, caching, and observability.
