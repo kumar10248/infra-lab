@@ -79,11 +79,11 @@ GET /api/metrics
 
 ---
 ## 🚀 Getting Started
-
+```js
 git clone https://github.com/kumar10248/infra-lab.git
 cd infra-lab
 docker compose up -d
-
+```
 ## Demo
 
 See screenshots and demo GIF below.
