@@ -1,4 +1,6 @@
 ![CI](https://github.com/kumar10248/infra-lab/actions/workflows/ci.yml/badge.svg)
+![Docker Hub](https://img.shields.io/badge/Docker%20Hub-Published-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 # 🚀 Infra Lab
 
 ![Node.js](https://img.shields.io/badge/Node.js-20-green)
@@ -22,6 +24,10 @@ A production-like containerized platform built to learn backend infrastructure, 
 * 📊 Prometheus metrics collection
 * 📈 Grafana dashboards for observability
 * 🔄 Round-robin load balancing and service discovery
+* ⚙️ GitHub Actions based CI pipeline
+* 📦 Automated Docker image publishing to Docker Hub
+* 🏷️ Versioned Docker images using Git commit SHA tags
+* 🔁 Rollback support using immutable image tags
 
 ---
 
@@ -76,14 +82,39 @@ GET /api/metrics
 * Observability & Monitoring
 * Production Debugging
 * CI Automation using GitHub Actions
+* Artifact Publishing using Docker Hub
+* Immutable Image Versioning
+* Cross-machine Container Deployment
+* Rollback Strategies
 
 ---
 ## 🚀 Getting Started
-```js
+
 git clone https://github.com/kumar10248/infra-lab.git
 cd infra-lab
 docker compose up -d
-```
+
+Access:
+
+- API: http://localhost/api
+- Admin: http://localhost/admin
+- Prometheus: http://localhost:9090
+- Grafana: http://localhost:3001
+
+## 🚀 Deployment
+
+Docker images are automatically built and published to Docker Hub using GitHub Actions.
+
+Pull images:
+
+docker pull kumar10248/infra-lab-api:latest
+docker pull kumar10248/infra-lab-admin:latest
+
+Specific version deployment:
+
+docker pull kumar10248/infra-lab-api:<git-sha>
+docker pull kumar10248/infra-lab-admin:<git-sha>
+
 ## Demo
 
 See screenshots and demo GIF below.
@@ -106,9 +137,27 @@ See screenshots and demo GIF below.
 
 * Database → Redis → Cache Hit workflow
 
+## CI/CD Pipeline
+
+Developer
+    ↓
+git push
+    ↓
+GitHub Actions
+    ↓
+Validate Docker Compose
+    ↓
+Build Docker Images
+    ↓
+Tag Images (latest + commit SHA)
+    ↓
+Push Images to Docker Hub
+    ↓
+Pull and Deploy on Any Docker-enabled Machine
 
 Built for learning real-world backend infrastructure and DevOps concepts.
 
 ## Demo Video Clip
 
 🎥 Demo Video: [Watch Here](./arch.mp4)
+
