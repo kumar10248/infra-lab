@@ -33,7 +33,10 @@ A production-like containerized platform built to learn backend infrastructure, 
 
 ## 🏗️ Architecture
 
-![alt text](architecture.png)
+![alt text](Client.png)
+
+The application uses Nginx as a reverse proxy and load balancer to distribute requests across multiple Node.js API replicas. Redis acts as a caching layer to reduce database load, while PostgreSQL provides persistent storage. Prometheus scrapes metrics from the API replicas and Grafana visualizes operational metrics such as request rate, CPU usage, memory usage, and event loop lag. Docker images are automatically built and published to Docker Hub using GitHub Actions, enabling deployment on any Docker-enabled Linux machine.
+
 ---
 
 ## Endpoints
@@ -95,26 +98,26 @@ cd infra-lab
 docker compose up -d
 
 Access:
-
+```http
 - API: http://localhost/api
 - Admin: http://localhost/admin
 - Prometheus: http://localhost:9090
 - Grafana: http://localhost:3001
-
+```
 ## 🚀 Deployment
 
 Docker images are automatically built and published to Docker Hub using GitHub Actions.
 
 Pull images:
-
+```http
 docker pull kumar10248/infra-lab-api:latest
 docker pull kumar10248/infra-lab-admin:latest
-
+```
 Specific version deployment:
-
+```http
 docker pull kumar10248/infra-lab-api:<git-sha>
 docker pull kumar10248/infra-lab-admin:<git-sha>
-
+```
 ## Demo
 
 See screenshots and demo GIF below.
