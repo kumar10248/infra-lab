@@ -92,10 +92,11 @@ GET /api/metrics
 
 ---
 ## 🚀 Getting Started
-
+```http
 git clone https://github.com/kumar10248/infra-lab.git
 cd infra-lab
 docker compose up -d
+```
 
 Access:
 ```http
