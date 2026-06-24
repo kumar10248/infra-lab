@@ -26,20 +26,22 @@ jobs:
         run: |
           docker build \
             -t ${{ secrets.DOCKER_USERNAME }}/infra-lab-api:latest \
+            -t ${{ secrets.DOCKER_USERNAME }}/infra-lab-api:${{ github.sha }} \
             ./api-server
 
       - name: Push API Image
         run: |
-          docker push \
-            ${{ secrets.DOCKER_USERNAME }}/infra-lab-api:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/infra-lab-api:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/infra-lab-api:${{ github.sha }}
 
       - name: Build Admin Image
         run: |
           docker build \
             -t ${{ secrets.DOCKER_USERNAME }}/infra-lab-admin:latest \
+            -t ${{ secrets.DOCKER_USERNAME }}/infra-lab-admin:${{ github.sha }} \
             ./admin-server
 
       - name: Push Admin Image
         run: |
-          docker push \
-            ${{ secrets.DOCKER_USERNAME }}/infra-lab-admin:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/infra-lab-admin:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/infra-lab-admin:${{ github.sha }}
