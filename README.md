@@ -163,5 +163,20 @@ Built for learning real-world backend infrastructure and DevOps concepts.
 
 ## Demo Video Clip
 
-🎥 Demo Video: [Watch Here](./arch.mp4)
+### Video Clip-1
+![alt text](scene-1.gif)
 
+### Video Clip-2
+![alt text](scene-2.gif)
+
+### Video Clip-3
+![alt text](scene-3.gif)
+
+### Video Clip-4
+![alt text](scene-4.gif)
+
+### Video Clip-5
+![alt text](scene-5.gif)
+
+### Video Clip-6
+![alt text](scene-6.gif)
